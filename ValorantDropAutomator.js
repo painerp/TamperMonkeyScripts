@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  farms twitch drops automatically
-// @author       painerp based on dinglemyberry#6969
+// @author       painerp based on ValorantDropFarmer from dinglemyberry#6969 
 // @updateURL    https://raw.githubusercontent.com/painerp/TamperMonkeyScripts/master/ValorantDropAutomator.js
 // @match        https://www.twitch.tv/*
 // @match        https://player.twitch.tv/*
@@ -77,11 +77,11 @@ function getCookie(cname) {
   }
   //Update Array Variables
   function UpdateTMArray() {
-    tmSet(ctname, [csid, '', '', '', '', '']); //vn
+    tmSet(ctname, [csid, '', '', '', '', '']);
   }
   //Get Array Variables
   function GetTMArray() {
-    let tmp = tmGet(ctname); //vn
+    let tmp = tmGet(ctname);
     csid = tmp[0];
 
   }
@@ -122,7 +122,6 @@ function getCookie(cname) {
       let stream = getHttp(url).data;
       console.log(stream);
       if (stream[0] && stream[0].type == 'live') {
-        //get the variable game_id which comes from the Twitch API response
         csgid = stream[0].game_id;
         console.log(stream[0]);
         console.log('this is the current game:' + csid);
@@ -251,7 +250,6 @@ function timeString() {
   return dstr;
 }
 
-//Tricking Twitch to think that the stream is never tabbed off
 // Try to trick the site into thinking it's never hidden
 Object.defineProperty(document, 'hidden', {
   value: false,
@@ -275,7 +273,7 @@ document.addEventListener('visibilitychange', function(e) {
   e.stopImmediatePropagation();
 }, true, true);
 
-// Set the player quality to "Source"
+// Set the player quality to 160p and disable low latency
 window.localStorage.setItem('s-qs-ts', Math.floor(Date.now()));
 window.localStorage.setItem('video-quality', '{"default":"160p30"}');
 window.localStorage.setItem('lowLatencyModeEnabled', 0);

@@ -10,7 +10,7 @@ Compatible with [Firefox Multi-Account Containers](https://addons.mozilla.org/en
 
 ### Features:
 - automates finding a valid stream
-- reloads stream on timeout or another error and every 10 minutes
+- reloads stream on timeout, on detecting an error and every 10 minutes
 - sets stream quality to 160p and disables low latency
 - automatically collects channel points
 - handles most warnings
